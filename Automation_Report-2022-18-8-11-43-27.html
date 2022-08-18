@@ -1,0 +1,1264 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset='utf-8' />
+    <meta name='description' content='' />
+    <meta name='robots' content='noodp, noydir' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://cdn.rawgit.com/anshooarora/extentreports-csharp/3b6cc04fd241b9782606e57fc5e84f0e42172c08/dist/css/extent.css' type='text/css' rel='stylesheet' />
+
+    <title>ExtentReports</title>
+
+</head>
+    
+
+
+	<body class='extent standard default hide-overflow bdd'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+		<nav>
+    <div class="nav-wrapper">
+        <a href="http://extentreports.relevantcodes.com" class="brand-logo blue darken-3">Extent</a>
+
+        <!-- slideout menu -->
+        <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+            <li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+                        <li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+        </ul>
+
+        <!-- report name -->
+        <span class='report-name'>ExtentReports</span>
+
+        <!-- report headline -->
+        <span class='report-headline'></span>
+
+        <!-- nav-right -->
+        <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+
+            <a>
+                <span class='suite-start-time label blue darken-3'>8/18/2022 11:43:27 AM Pakistan Standard Time</span>
+            </a>
+            <a>
+                <span class="label blue darken-3">3.1.0</span>
+            </a>
+        </ul>
+    </div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+            
+<div id='test-view' class='view'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- test toggle -->
+            <div class='chip transparent'>
+                <a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+                    <i class='material-icons'>warning</i> Status
+                </a>
+                <ul id='tests-toggle' class='dropdown-content'>
+                    <li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+                    <li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+                    <li status='error'><a href='#!'>Error <i class='material-icons red-text lighten-2'>error</i></a></li>
+                    <li status='warning'><a href='#!'>Warning <i class='material-icons orange-text'>warning</i></a></li>
+                    <li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+                    <li class='divider'></li>
+                    <li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+                </ul>
+            </div>
+            <!-- test toggle -->
+
+            <!-- category toggle -->
+            <!-- category toggle -->
+
+            <!-- clear filters -->
+            <div class='chip transparent hide'>
+                <a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+                    <i class='material-icons'>close</i> Clear
+                </a>
+            </div>
+            <!-- clear filters -->
+
+            <!-- enable dashboard -->
+
+            <div id='toggle-test-view-charts' class='chip transparent'>
+                    <a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+                        <i class='material-icons'>track_changes</i> Dashboard
+                    </a>
+            </div>
+            <!-- enable dashboard -->
+
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+
+
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box'>
+                    <canvas id='parent-analysis' width='100' height='80'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span><span class='strong'>1</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong'>2</span> test(s) failed, <span class='strong'>0</span> others
+                </div>
+            </div>
+        </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Scenarios</div>
+                    <div class='chart-box'>
+                        <canvas id='child-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>7</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>14</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Steps</div>
+                    <div class='chart-box'>
+                        <canvas id='grandchild-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>154</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>14</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Tests</h5>
+
+            <ul id='test-collection' class='test-collection'>
+
+
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='1'>
+                        <div class='test-heading'>
+                            <span class='test-name'>MakerCheckerOnBulkSend</span>
+                            <span class='test-time'>8/18/2022 11:43:28 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='2' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:16.7329711</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to login from Sparrow Back-office
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='3' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Login"
+                                                                                                                                                                    </li>
+                                                    <li test-id='4' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the user is arrive to IRIS login page
+                                                                                                                                                                    </li>
+                                                    <li test-id='5' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "admin" on "Login_UserId"
+                                                                                                                                                                    </li>
+                                                    <li test-id='6' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "tpstps_1" on "Login_Password"
+                                                                                                                                                                    </li>
+                                                    <li test-id='7' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Login_SignIn_Button"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='8' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:52.1692520</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to resend batch
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='9' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "When approved from checker"
+                                                                                                                                                                    </li>
+                                                    <li test-id='10' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        update the data by query "Begin DELETE FROM IRIS_ACTIVITY.BATCH_INSTRUCTIONS BI WHERE BI.BATCH_ID='SBPPPKKA2020031036451133373368'; DELETE FROM IRIS_ACTIVITY.BATCH_MESSAGES BM WHERE BM.ID = 'SBPPPKKA2020031036451133373368';Insert into IRIS_ACTIVITY.BATCH_MESSAGES (MSGID,ID,BATCH_MSG_TYPE,BATCH_STATUS,RECIEVED_DATETIME,COMPLETION_DATETIME,REASON,MODIFIED_DATETIME,INSTRUCTIONS_COUNT,PROCESSED_INSTRUCTIONS,AMOUNT,CURRENCY,STAGE,SETTLEMENT_DATE,FROM_MMBID,TO_MMBID,BATCH_DATE,RECEIVING_MODE,SOURCE,INTERNAL_STATUS,PARENT_BATCH_ID,RETRIES,TRANSMIT_RETRIES,BATCH_ALERT_EVENT,SENDER_PARTICIPANT_CODE,IS_IMMEDIATE_STATUS_POSTED,POLL_STAGE,TTC,BTCHBOOKG,INSTGAGT,INSTDAGT,PAYMENT_INDICATOR,BATCH_TYPE_INTERNAL,UNIQUE_KEY,MESSAGE_DIRECTION) values ((select max(MSGID)+1 from IRIS_ACTIVITY.BATCH_MESSAGES),'SBPPPKKA2020031036451133373368','pacs.008.001.08',null,to_date('09-NOV-21','DD-MON-RR'),null,null,to_date('09-NOV-21','DD-MON-RR'),2,0,'2000','PKR','NEW','2020-03-10','HHHHAAXX','SCBLPKKA','9-NOV-2021 16:5:37','Stream',null,null,'CDC-000000000000000000000000043',0,0,'0','SBPPPKKA','0','NEW',null,null,'CDCPKKAA','CDCPKKAA','DEBTOR','pacs.008_sendbulk',null,'outbound');Commit;end;"
+                                                                                                                                                                    </li>
+                                                    <li test-id='11' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='12' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing"
+                                                                                                                                                                    </li>
+                                                    <li test-id='13' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing_Batch-ID-Filter"
+                                                                                                                                                                    </li>
+                                                    <li test-id='14' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "SBPPPKKA2020031036451133373368" on "BulkOperation_Sent-Batch-Processing_Input-field"
+                                                                                                                                                                    </li>
+                                                    <li test-id='15' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Settlement_General_LedgerAccount_Account_Code_filter_submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='16' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing_Resend-Batch"
+                                                                                                                                                                    </li>
+                                                    <li test-id='17' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I Press key
+                                                                                                                                                                    </li>
+                                                    <li test-id='18' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        verify through "nothing to display" on "Configuration_Add_Payment-Successfull-Message"
+                                                                                                                                                                    </li>
+                                                    <li test-id='19' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Login_Out_DropDown"
+                                                                                                                                                                    </li>
+                                                    <li test-id='20' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Login_Out_DropDown_LogOut"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='21' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:50.7150171</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to perform batch authorization from checker
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='22' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "checkerAuthorize"
+                                                                                                                                                                    </li>
+                                                    <li test-id='23' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "checker" on "Login_UserId"
+                                                                                                                                                                    </li>
+                                                    <li test-id='24' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "tpstps_1" on "Login_Password"
+                                                                                                                                                                    </li>
+                                                    <li test-id='25' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Login_SignIn_Button"
+                                                                                                                                                                    </li>
+                                                    <li test-id='26' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing_Checker-Authorize-Requests"
+                                                                                                                                                                    </li>
+                                                    <li test-id='27' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing_Checker-ID-Filter"
+                                                                                                                                                                    </li>
+                                                    <li test-id='28' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "SBPPPKKA2020031036451133373368" on "BulkOperation_Sent-Batch-Processing_Input-field"
+                                                                                                                                                                    </li>
+                                                    <li test-id='29' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Sent-Batch-Processing_Checker-CheckBox"
+                                                                                                                                                                    </li>
+                                                    <li test-id='30' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Login_Checker-Authorize-All-CheckBox_Approve"
+                                                                                                                                                                    </li>
+                                                    <li test-id='31' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        verify through "Selected request(s) are marked as 'Commited'." on "Configuration_Add_Payment-Successfull-Message"
+                                                                                                                                                                    </li>
+                                                    <li test-id='32' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Login_Out_DropDown"
+                                                                                                                                                                    </li>
+                                                    <li test-id='33' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Login_Out_DropDown_LogOut"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='34'>
+                        <div class='test-heading'>
+                            <span class='test-name'>SparrowReports</span>
+                            <span class='test-time'>8/18/2022 11:45:28 AM</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='35' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:12.7983713</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            I want to login Sparrow Back-office
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='36' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "As an admin user I want to login Sparrow Back-office"
+                                                                                                                                                                    </li>
+                                                    <li test-id='37' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the user is arrive to IRIS login page
+                                                                                                                                                                    </li>
+                                                    <li test-id='38' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "admin" on "Login_UserId"
+                                                                                                                                                                    </li>
+                                                    <li test-id='39' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "tpstps_1" on "Login_Password"
+                                                                                                                                                                    </li>
+                                                    <li test-id='40' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Login_SignIn_Button"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='41' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:58.1228438</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an Admin user I want to Schedule
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='42' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Sending Report from Sparrow BackOffice with status ALL from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='43' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='44' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='45' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='46' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Sending_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='47' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='48' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I have given "HHHHAAXX" on "Reports_Panel_Receiving-Institution"
+                                                                                                                                                                    </li>
+                                                    <li test-id='49' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "All" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='50' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='51' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='52' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='53' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='54' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:58.3453491</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an Admin user I want to Schedule
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='55' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Sending Report from Sparrow BackOffice with status Completed  from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='56' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='57' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='58' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='59' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Sending_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='60' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='61' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I have given "HHHHAAXX" on "Reports_Panel_Receiving-Institution"
+                                                                                                                                                                    </li>
+                                                    <li test-id='62' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "Completed" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='63' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='64' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='65' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='66' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='67' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:57.2089763</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an Admin user I want to Schedule
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='68' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Sending Report from Sparrow BackOffice with status  In Progress from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='69' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='70' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='71' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='72' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Sending_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='73' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='74' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I have given "HHHHAAXX" on "Reports_Panel_Receiving-Institution"
+                                                                                                                                                                    </li>
+                                                    <li test-id='75' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "In Progress" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='76' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='77' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='78' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='79' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='80' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:58.4483019</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an Admin user I want to Schedule
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='81' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Sending Report from Sparrow BackOffice with status Rejected  from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='82' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='83' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='84' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='85' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Sending_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='86' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='87' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I have given "HHHHAAXX" on "Reports_Panel_Receiving-Institution"
+                                                                                                                                                                    </li>
+                                                    <li test-id='88' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "Rejected" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='89' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='90' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='91' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='92' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='93' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:57.4999782</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to Schedule Instructions Report
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='94' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='95' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='96' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='97' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='98' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Instruction_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='99' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "CDC-SCBP-11113239752222000" on "Reports_Reports_panel_Batch_Instruction_Batch_Id"
+                                                                                                                                                                    </li>
+                                                    <li test-id='100' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='101' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "All" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='102' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='103' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='104' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='105' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='106' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:57.4537772</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to Schedule Instructions Report
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='107' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "with status Completed from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='108' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='109' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='110' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='111' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Instruction_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='112' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "CDC-SCBP-11113239752222000" on "Reports_Reports_panel_Batch_Instruction_Batch_Id"
+                                                                                                                                                                    </li>
+                                                    <li test-id='113' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='114' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "Completed" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='115' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='116' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='117' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='118' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='119' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:58.7337604</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to Schedule Instructions Report
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='120' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "with status In Progress from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='121' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='122' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='123' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='124' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Instruction_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='125' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "CDC-SCBP-11113239752222000" on "Reports_Reports_panel_Batch_Instruction_Batch_Id"
+                                                                                                                                                                    </li>
+                                                    <li test-id='126' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='127' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "In Progress" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='128' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='129' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='130' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='131' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='132' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:57.4934202</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to Schedule Instructions Report
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='133' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "with status Rejected from Sparrow BackOffice"
+                                                                                                                                                                    </li>
+                                                    <li test-id='134' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='135' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel"
+                                                                                                                                                                    </li>
+                                                    <li test-id='136' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch-Report-Extender"
+                                                                                                                                                                    </li>
+                                                    <li test-id='137' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Reports_Panel_Batch_Instruction_Report"
+                                                                                                                                                                    </li>
+                                                    <li test-id='138' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I have given "CDC-SCBP-11113239752222000" on "Reports_Reports_panel_Batch_Instruction_Batch_Id"
+                                                                                                                                                                    </li>
+                                                    <li test-id='139' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I select date day before yesterday on "Reports_Panel_Date-From"
+                                                                                                                                                                    </li>
+                                                    <li test-id='140' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I select "Rejected" wait on "Reports_Panel_Batch-status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='141' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I choose "Reports_Reports_panel_format"  values "MS Excel (*.XLS),Plain Text (*.TXT),MS Excel (Data-Only) (*.XLS),CSV (*.CSV)"
+                                                                                                                                                                    </li>
+                                                    <li test-id='142' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='143' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "Reports_Reports_panel_Submit"
+                                                                                                                                                                    </li>
+                                                    <li test-id='144' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        verify through "Requested report has been queued for processing. Click Here to view status." on "Security_Notification_msg"
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<Requested report has been queued for processing. Click Here to view status.>. Actual:<The Quartz Service is currently not running.>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='145' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:05.4170574</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to log out
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='146' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "logout"
+                                                                                                                                                                    </li>
+                                                    <li test-id='147' class='node given fail' status='given fail'>
+                                                        <b>Given</b>
+                                                        I am clicking on "Login_Out_DropDown"
+                                                                                                                                                                            <div class='pre'>ex message: unknown error: Element <div class="nuiul_ArrowDown"></div> is not clickable at point (1684, 21). Other element would receive the click: <div class="notificationContent" style="height: 32px; padding: 6px 0px;">...</div>
+  (Session info: chrome=104.0.5112.81)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.15063 x86_64)</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf fail' status='fail' bdd='bdd' test-id='148'>
+                        <div class='test-heading'>
+                            <span class='test-name'>Schedule Imports to import batch in Sparrow</span>
+                            <span class='test-time'>8/18/2022 11:53:30 AM</span>
+                            <span class='test-status right fail'>Fail</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='149' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:11.7772047</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            I want to start
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='150' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Core"
+                                                                                                                                                                    </li>
+                                                    <li test-id='151' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        Core "stop" for "all" process
+                                                                                                                                                                    </li>
+                                                    <li test-id='152' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Core "start" with "redis,supervisor,pm2,mock,apg,restart_apg,mpg" and "bash --login -c 'cd @redispath;./redis-server --port @redisport &'#ps -ef | grep redis | grep @coreuser#./redis-server *:@redisport,bash --login -c 'cd @coredirectory;supervisord'#bash --login -c 'cd @coredirectory;supervisorctl status'#clogger                          RUNNING,bash --login -c 'cd @coredirectory;pm2 start'#ps -ef | grep node | grep @coreuser#node /home/@coreuser/@coredirectory/js/RestClient/index.js,bash --login -c 'cd @coredirectory;node js/mock/server.js &';#ps -ef | grep js/mock/server.js | grep @coreuser;# node js/mock/server.js,bash --login -c 'cd @coredirectory;node js/servers/apgserver.js &'#ps -ef | grep js/servers/apgserver.js | grep @coreuser# node js/servers/apgserver.js,bash --login -c 'cd @coredirectory;pm2 restart apgclient'#ps -ef | grep node | grep @coreuser# node /home/@coreuser/@coredirectory/js/apgclient/index.js,bash --login -c 'cd @coredirectory;node js/servers/mpgserver.js &'#ps -ef | grep js/servers/mpgserver.js | grep @coreuser# node js/servers/mpgserver.js"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='153' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:00.1777691</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to update DB
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='154' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "As an admin user I want to update DB"
+                                                                                                                                                                    </li>
+                                                    <li test-id='155' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        update the data by query "Begin DELETE FROM IRIS_TRANSACTION.TRANSACTION_LOG WHERE BATCH_ID LIKE '%PSOS888%';DELETE FROM IRIS_ACTIVITY.IMP_FORMAT_HISTORY WHERE SOURCE_FILE_NAME = 'CDC-0000000000000000000357';DELETE FROM IRIS_ACTIVITY.IMPORT_BATCH_STATUS_LINKING WHERE ORIGINAL_BATCH_ID = 'CDC-0000000000000000000357';DELETE FROM IRIS_ACTIVITY.BATCH_MESSAGES WHERE ID LIKE '%PSOS888%';DELETE FROM IRIS_ACTIVITY.BATCH_INSTRUCTIONS WHERE BATCH_ID like '%PSOS888%';DELETE FROM IRIS_TEMP.BULK_SENDING_IMPORT_LOG WHERE BATCH_ID='CDC-0000000000000000000357';DELETE FROM IRIS_ACTIVITY.IMPORT_EXECUTION_LOG WHERE MESSAGE_TYPE LIKE '%Information%' OR MESSAGE_TYPE LIKE '%Error%';DELETE FROM IRIS_CONFIG.IMP_FORMAT_SCHEDULE WHERE FORMAT_ID = '3005';commit;end;"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='156' status='fail'>
+                                        <span class='scenario-duration right label'>00:01:01.6703552</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to login Sparrow Back-office
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='157' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "As an admin user I want to login Sparrow Back-office"
+                                                                                                                                                                    </li>
+                                                    <li test-id='158' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the user is arrive to IRIS login page
+                                                                                                                                                                    </li>
+                                                    <li test-id='159' class='node given fail' status='given fail'>
+                                                        <b>Given</b>
+                                                        I have given "admin" on "Login_UserId"
+                                                                                                                                                                            <div class='pre'>ex message: Timed out after 60 seconds</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='160' status='fail'>
+                                        <span class='scenario-duration right label'>00:01:26.3005528</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to import
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='161' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Sending Batch Import from Sparrow Back Office"
+                                                                                                                                                                    </li>
+                                                    <li test-id='162' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='163' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Import"
+                                                                                                                                                                    </li>
+                                                    <li test-id='164' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        I am clicking on "BulkOperation_Import-Add"
+                                                                                                                                                                    </li>
+                                                    <li test-id='165' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        I select "Sending Batch Import" wait on "BulkOperation_Import-Format"
+                                                                                                                                                                            <div class='pre'>ex message: Timed out after 60 seconds</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='166' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:00.0468925</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to update some values
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='167' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Export Scheduler DB Update"
+                                                                                                                                                                    </li>
+                                                    <li test-id='168' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        update the data by query "BEGIN UPDATE IRIS_ACTIVITY.BATCH_INSTRUCTIONS SET BATCH_ID = '20220316PSOS888036' WHERE INSTRUCTION_ID = '11208720';UPDATE IRIS_ACTIVITY.BATCH_INSTRUCTIONS SET BATCH_ID = '20220316PSOS888036' WHERE INSTRUCTION_ID = '11208719';UPDATE IRIS_ACTIVITY.BATCH_MESSAGES SET ID ='20220316PSOS888036' WHERE INSTDAGT LIKE '%PSOS888%' AND rownum<=1;UPDATE IRIS_ACTIVITY.IMPORT_BATCH_STATUS_LINKING SET INTERNAL_BATCH_ID ='20220316PSOS888036' WHERE ORIGINAL_BATCH_ID ='CDC-0000000000000000000357';UPDATE IRIS_TRANSACTION.TRANSACTION_LOG SET BATCH_ID = '20220316PSOS888036' WHERE TRANSACTION_CODE IN('AB','AI','CB');commit;end;"
+                                                                                                                                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='169' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:01.1874806</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As A User I Want To verify validate
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='170' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "validate status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='171' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the endpoint is "/api/instructions/validate/status"
+                                                                                                                                                                    </li>
+                                                    <li test-id='172' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "content-type" has "application/json" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='173' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "X-Request-ID" has "10005" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='174' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "Accept" has "application/jose" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='175' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "Sender-Participant-Code" has "SCBPLAA" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='176' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "Sender-User-Code" has "TESTUSERAAAA" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='177' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the "Receiver-Participant-Code" has "GGGGAAXX" as header
+                                                                                                                                                                    </li>
+                                                    <li test-id='178' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        the body is "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpPU0UiLCJ4NXQiOiJMREQwTTRqcllPTzljR2p2Ujdua2Y5N1JJWDAifQ.eyJiYXRjaEluaXRpYXRvciI6IlNDQkxQS0tBIiwiYmF0Y2hJZCI6IjIwMjIwMzE2UFNPUzg4ODAzNiIsInZhbHVlRGF0ZSI6IjIwMjAtMDMtMTAiLCJpbnN0cnVjdGlvbnMiOlt7Imluc3RydWN0aW9uSWQiOiIxMTIwODcyMCIsInJlcG9ydGVkU3RhdHVzIjp7Im5hbWUiOiJSZWplY3RlZCIsInJlamVjdGVkUmVhc29uIjoiQmxvY2tlZEFjY291bnQiLCJtb2RpZmljYXRpb25EYXRlVGltZSI6IjIwMjAtMDMtMTBUMTA6MjI6MjhaIn19XX0.Zdk8wuzilhdcBH74WwsLh79a0s5XdZcWMt380w0bFDv_Ge3yFyVUm01iFnPQJ5mAHPDla3Sn5O97Cr9HFezxLGxmEmCpu6sJU-8iZiBUJNANMa8Vb1cZwAlgGCirBPO2_v3TmXUqLMl4G8Vt_c-xi_uOxOuzxn1s2b24iLuwnx1FQZlDV31lcHDdDMOd5u0vcamfEGMop-TLTuFaFCBtmoPwInLvKeajbS-JAuYG7iCqP2abqv1E7Zv-2d_f-VfEsVBNOTmW-0kyVqQLvl0ddgOmKYAG2L1gbTr8kQMJ0p3GcUV6q_ZblexYvTFo3D0lPwDjZ63cgYj5Zm5gG8p3CQ"
+                                                                                                                                                                    </li>
+                                                    <li test-id='179' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        POST request is made for Transaction "1"
+                                                                                                                                                                    </li>
+                                                    <li test-id='180' class='node then fail' status='then fail'>
+                                                        <b>Then</b>
+                                                        the response status should be 200
+                                                                                                                                                                            <div class='pre'>Assert.AreEqual failed. Expected:<200>. Actual:<0>.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='181' status='fail'>
+                                        <span class='scenario-duration right label'>00:00:04.6753168</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            [Verify That] PACS002_ASCP Has Been Received For The Respective PACS.008 MSG
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='182' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Instruction Is Processed And Batch Is COMPLETED"
+                                                                                                                                                                    </li>
+                                                    <li test-id='183' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        Core "stop" for "mpg" process
+                                                                                                                                                                    </li>
+                                                    <li test-id='184' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        WhenPacs002MsgASCPIsCalledForPacs008BulkImport
+                                                                                                                                                                            <div class='pre'>There is no row at position 0.</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='185' status='fail'>
+                                        <span class='scenario-duration right label'>00:01:24.7971098</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            As an admin user I want to export
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='186' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        update the data by query "BEGIN UPDATE IRIS_ACTIVITY.BATCH_INSTRUCTIONS SET BATCH_ID = '20220316PSOS888036' WHERE INSTRUCTION_ID = '11208720';UPDATE IRIS_ACTIVITY.BATCH_INSTRUCTIONS SET BATCH_ID = '20220316PSOS888036' WHERE INSTRUCTION_ID = '11208719';UPDATE IRIS_ACTIVITY.BATCH_MESSAGES SET ID ='20220316PSOS888036' WHERE INSTDAGT LIKE '%PSOS888%' AND rownum<=1;UPDATE IRIS_ACTIVITY.IMPORT_BATCH_STATUS_LINKING SET INTERNAL_BATCH_ID ='20220316PSOS888036' WHERE ORIGINAL_BATCH_ID ='CDC-0000000000000000000357';UPDATE IRIS_TRANSACTION.TRANSACTION_LOG SET BATCH_ID = '20220316PSOS888036' WHERE TRANSACTION_CODE IN('AB','AI','CB');commit;end;"
+                                                                                                                                                                    </li>
+                                                    <li test-id='187' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        the test case title is "Batch Export Scheduler from Sparrow Back Office"
+                                                                                                                                                                    </li>
+                                                    <li test-id='188' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I scroll to "BulkOperation_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='189' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "BulkOperation_locator"
+                                                                                                                                                                    </li>
+                                                    <li test-id='190' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "BulkOperation_Export"
+                                                                                                                                                                    </li>
+                                                    <li test-id='191' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        I am clicking on "BulkOperation_Export_Add"
+                                                                                                                                                                    </li>
+                                                    <li test-id='192' class='node when fail' status='when fail'>
+                                                        <b>When</b>
+                                                        I select "Batch Export Scheduler" wait on "BulkOperation_Export_Format"
+                                                                                                                                                                            <div class='pre'>ex message: Timed out after 60 seconds</div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <!-- subview left -->
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='test-name'></h5>
+
+        </div>
+    </div>
+    <!-- subview right -->
+
+</div>
+<!-- test view -->
+            <!-- category view -->
+            
+
+
+    <div id='exception-view' class='view hide'>
+
+        <section id='controls'>
+            <div class='controls grey lighten-4'>
+                <!-- search -->
+                <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                    <a href="#" class='search-div'>
+                        <i class='material-icons'>search</i> Search
+                    </a>
+
+                    <div class='input-field left hide'>
+                        <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                    </div>
+                </div>
+                <!-- search -->
+            </div>
+        </section>
+
+        <div class='subview-left left'>
+
+            <div class='view-summary'>
+                <h5>Exceptions</h5>
+                <ul id='exception-collection' class='exception-collection'>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class='subview-right left'>
+            <div class='view-summary'>
+                <h5 class='exception-name'></h5>
+            </div>
+        </div>
+    </div>
+<!-- exception view -->
+            
+
+
+<div id='dashboard-view' class='view hide'>
+    <div class='card-panel transparent np-v'>
+        <h5>Dashboard</h5>
+
+        <div class='row'>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Features</span>                     <div class='panel-lead'>3</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Scenarios</span>                     <div class='panel-lead'>21</div>
+                </div>
+            </div>
+                <div class='col s2'>
+                    <div class='card-panel r'>
+                        Steps
+                        <div class='panel-lead'>168</div>
+                    </div>
+                </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Start
+                    <div class='panel-lead'>8/18/2022 11:43:27 AM</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    End
+                    <div class='panel-lead'>8/18/2022 11:58:53 AM</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Time Taken
+                    <div class='panel-lead'>00:15:25.3738800</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- dashboard view -->
+            
+
+
+<!-- exception view -->
+
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+			    passParent: 1,
+			    failParent: 2,
+			    fatalParent: 0,
+			    errorParent: 0,
+			    warningParent: 0,
+			    skipParent: 0,
+				
+			    passChild: 7,
+			    failChild: 14,
+			    fatalChild: 0,
+			    errorChild: 0,
+			    warningChild: 0,
+			    skipChild: 0,
+			    infoChild: 0,
+				
+			    passGrandChild: 154,
+			    failGrandChild: 14,
+			    fatalGrandChild: 0,
+			    errorGrandChild: 0,
+			    warningGrandChild: 0,
+			    skipGrandChild: 0,
+			    infoGrandChild: 0
+			};
+		</script>
+
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports-csharp/e468054d67d93c2fd9c8f0f60e31a7ea09fa3bf6/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+			</body>
+	
+</html>
